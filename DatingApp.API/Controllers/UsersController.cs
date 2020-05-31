@@ -18,6 +18,16 @@ namespace DatingApp.API.Controllers
             _repo = repo;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _repo.GetUsers();
+
+            var usersToReturn = _mapper.Map<UserForListDto>(users);
+
+            return Ok(usersToReturn);
+        }
+
         [HttpGet("{id}", Name = "GetUser")]
         public async Task<IActionResult> GetUser(int id)
         {
