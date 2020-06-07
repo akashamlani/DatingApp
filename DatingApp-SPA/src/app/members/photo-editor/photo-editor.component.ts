@@ -22,6 +22,7 @@ export class PhotoEditorComponent implements OnInit {
     private alertify: AlertifyService) { }
 
   ngOnInit() {
+    this.initializeUploader();
   }
 
   fileOverBase(e: any): void {
